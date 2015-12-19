@@ -163,8 +163,11 @@ namespace Snake
             string folder = Path.GetDirectoryName(exePath);
             FileInfo[] musicFile = new DirectoryInfo(folder).GetFiles("*.mp3");
 
-            wplayer.URL = musicFile[0].FullName;
-            wplayer.controls.play();
+            if (musicFile.Length != 0)
+            {
+                wplayer.URL = musicFile[0].FullName;
+                wplayer.controls.play();
+            }
         }
     }
 }
