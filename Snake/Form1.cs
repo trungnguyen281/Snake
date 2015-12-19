@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+using System.IO;
+using WMPLib;
 
 namespace Snake
 {
@@ -150,6 +153,18 @@ namespace Snake
             score = 0;
             up = false; down = false; left = false; right = false;
             snake = new Snake();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            WindowsMediaPlayer wplayer = new WindowsMediaPlayer();
+
+            string exePath = Assembly.GetExecutingAssembly().Location;
+            string folder = Path.GetDirectoryName(exePath);
+            FileInfo[] musicFile = new DirectoryInfo(folder).GetFiles("*.mp3");
+
+            wplayer.URL = musicFile[0].FullName;
+            wplayer.controls.play();
         }
     }
 }
