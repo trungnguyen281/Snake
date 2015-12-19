@@ -1,3 +1,0 @@
-E:\Visual Studio 2012\Projects\PTTK PM\Snake\Snake\bin\Release\Snake.exe.config
-E:\Visual Studio 2012\Projects\PTTK PM\Snake\Snake\obj\Release\Interop.WMPLib.dll
-E:\Visual Studio 2012\Projects\PTTK PM\Snake\Snake\obj\Release\Snake.csproj.ResolveComReference.cache

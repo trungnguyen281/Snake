@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Threading;
 using WMPLib;
 
 namespace Snake
@@ -28,9 +29,15 @@ namespace Snake
 
         int score = 0;
 
+        static WindowsMediaPlayer wplayer;
+
         public Form1()
         {
             InitializeComponent();
+
+            Thread thread = new Thread(new ThreadStart(playMp3));
+            thread.Start();
+
             worm = new Worm(randomWorm);
         }
 
@@ -155,9 +162,9 @@ namespace Snake
             snake = new Snake();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void playMp3()
         {
-            WindowsMediaPlayer wplayer = new WindowsMediaPlayer();
+            wplayer = new WindowsMediaPlayer();
 
             string exePath = Assembly.GetExecutingAssembly().Location;
             string folder = Path.GetDirectoryName(exePath);
